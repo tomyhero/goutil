@@ -6,6 +6,8 @@ import (
 	"strconv"
 )
 
+// Bring Data::Page and Data::Page::Navigation Impl and customize littie bit
+// http://search.cpan.org/~lbrocard/Data-Page-2.02/,http://search.cpan.org/~kazeburo/Data-Page-Navigation-0.06/
 type Pager struct {
 	// TotalEntries is holding total of entries of the list
 	TotalEntries uint64
