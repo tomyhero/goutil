@@ -3,11 +3,16 @@ package enum_util
 import (
 	"fmt"
 	"reflect"
+	"strconv"
 )
 
 type Field struct {
 	Name  string
 	Value int
+}
+
+func (f Field) ValueString() string {
+	return strconv.Itoa(f.Value)
 }
 
 func GetFields(s interface{}) []Field {
