@@ -16,7 +16,7 @@ type Pager struct {
 	RequestURI   string
 }
 
-var PAGER_DEFAULT_ENTRY_PER_PAGE uint64 = 30
+var PAGER_DEFAULT_ENTRY_PER_PAGE uint64 = 60
 
 func NewPager(p string) *Pager {
 	i, err := strconv.ParseUint(p, 10, 64)
