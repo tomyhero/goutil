@@ -1,4 +1,4 @@
-package goutil_test
+package pager_test
 
 import (
 	"."
@@ -24,8 +24,8 @@ func ExamplePager() {
 {{ end }}
 `
 
-	goutil.PAGER_DEFAULT_ENTRY_PER_PAGE = 10
-	pager := goutil.NewPager("9")
+	pager.PAGER_DEFAULT_ENTRY_PER_PAGE = 10
+	pager := pager.NewPager("9")
 	pager.TotalEntries = 1000
 	pager.RequestURI = "/foo/?bar=bar&p=10"
 	t, _ := template.New("paging").Parse(tpl)

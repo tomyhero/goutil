@@ -1,4 +1,4 @@
-package goutil
+package pager
 
 import (
 	"reflect"
@@ -8,8 +8,8 @@ import (
 func TestNewPager(t *testing.T) {
 	pager := NewPager("1")
 
-	if reflect.TypeOf(pager).String() != "*goutil.Pager" {
-		t.Fatalf("type must be *goutil.Pager", reflect.TypeOf(pager).Name())
+	if reflect.TypeOf(pager).String() != "*pager.Pager" {
+		t.Fatalf("type must be *pager.Pager", reflect.TypeOf(pager).Name())
 	}
 
 	if pager.EntryPerPage != 30 {
