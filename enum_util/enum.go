@@ -15,6 +15,17 @@ func (f Field) ValueString() string {
 	return strconv.Itoa(f.Value)
 }
 
+func Match(s interface{}, value int) bool {
+	val := reflect.ValueOf(s).Elem()
+	for i := 0; i < val.NumField(); i++ {
+		valueField := val.Field(i)
+		if valueField.Interface().(int) == value {
+			return true
+		}
+	}
+	return false
+}
+
 func GetFields(s interface{}) []Field {
 	fields := []Field{}
 
