@@ -12,15 +12,15 @@ func TestNewPager(t *testing.T) {
 		t.Fatalf("type must be *pager.Pager", reflect.TypeOf(pager).Name())
 	}
 
-	if pager.EntryPerPage != 30 {
-		t.Fatal("default should be 30")
+	if pager.EntryPerPage != 60 {
+		t.Fatal("default should be 60")
 	}
 
 	// change default
 	PAGER_DEFAULT_ENTRY_PER_PAGE = 35
 
-	if v := pager.EntryPerPage; v != 30 {
-		t.Fatal("default should 30 on this instance", v)
+	if v := pager.EntryPerPage; v != 60 {
+		t.Fatal("default should 60 on this instance", v)
 	}
 
 	{
