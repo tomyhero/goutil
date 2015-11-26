@@ -52,10 +52,11 @@ func (self *Pager) Last() uint64 {
 }
 
 func (self *Pager) Offset() uint64 {
-	skipped := self.First() - 1
-	if skipped < 0 {
+
+	if self.First() == 0 {
 		return 0
 	} else {
+		skipped := self.First() - 1
 		return skipped
 	}
 }
