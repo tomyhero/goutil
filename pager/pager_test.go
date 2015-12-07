@@ -6,7 +6,21 @@ import (
 )
 
 func TestNewPager(t *testing.T) {
-	pager := NewPager("1")
+
+	if NewPager(int(2)).CurrentPage != 2 {
+		t.Fail()
+	}
+	if NewPager(int64(2)).CurrentPage != 2 {
+		t.Fail()
+	}
+	if NewPager("2").CurrentPage != 2 {
+		t.Fail()
+	}
+	if NewPager(uint64(2)).CurrentPage != 2 {
+		t.Fail()
+	}
+
+	pager := NewPager(1)
 
 	if reflect.TypeOf(pager).String() != "*pager.Pager" {
 		t.Fatalf("type must be *pager.Pager", reflect.TypeOf(pager).Name())

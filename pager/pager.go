@@ -18,11 +18,25 @@ type Pager struct {
 
 var PAGER_DEFAULT_ENTRY_PER_PAGE uint64 = 60
 
-func NewPager(p string) *Pager {
-	i, err := strconv.ParseUint(p, 10, 64)
-	if err != nil {
-		panic(err)
+func NewPager(value interface{}) *Pager {
+
+	var i uint64
+	if v, ok := value.(string); ok {
+		p, err := strconv.ParseUint(v, 10, 64)
+		if err != nil {
+			panic(err)
+		}
+		i = p
+	} else if v, ok := value.(uint64); ok {
+		i = v
+	} else if v, ok := value.(int); ok {
+		i = uint64(v)
+	} else if v, ok := value.(int64); ok {
+		i = uint64(v)
+	} else {
+		panic("not supported")
 	}
+
 	return &Pager{EntryPerPage: PAGER_DEFAULT_ENTRY_PER_PAGE, CurrentPage: i}
 }
 
