@@ -12,6 +12,11 @@ func Int2Str(i int) string {
 }
 
 // [文字列]文字列を、[文字列]インターフェースに
+func StrStr2StrI(tmp map[string]string) map[string]interface{} {
+	return StrStr2StrInt(tmp)
+}
+
+// OOPS....
 func StrStr2StrInt(tmp map[string]string) map[string]interface{} {
 	args := map[string]interface{}{}
 	for k, v := range tmp {

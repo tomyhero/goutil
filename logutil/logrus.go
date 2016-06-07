@@ -12,6 +12,13 @@ type SourceFileHook struct {
 	LogLevel logrus.Level
 }
 
+func SetupSourceFileHook() {
+	logrus.AddHook(&SourceFileHook{LogLevel: logrus.InfoLevel})
+	logrus.AddHook(&SourceFileHook{LogLevel: logrus.WarnLevel})
+	logrus.AddHook(&SourceFileHook{LogLevel: logrus.ErrorLevel})
+	logrus.AddHook(&SourceFileHook{LogLevel: logrus.PanicLevel})
+}
+
 func (hook *SourceFileHook) Fire(entry *logrus.Entry) (_ error) {
 	for skip := 4; skip < 9; skip++ {
 		_, file, line, _ := runtime.Caller(skip)
